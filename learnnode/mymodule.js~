@@ -1,0 +1,35 @@
+var path=require('path');
+var fs=require('fs');
+
+module.exports=function(dir,ext,callback){
+ext='.'+ext;
+
+fs.readdir(dir,function(err,files){
+	if(err)
+		callback(err);
+		
+	files=files.filter(function(file){
+		if(path.extname(file)==ext)
+			return true;
+		else
+			return false;
+		}
+	callback(null,files);
+});
+/*
+fs.readFile(process.argv[2],'utf8',function(err,data){
+if(err) throw err;
+data=data.toString();
+data=data.split('\n');
+console.log(data.length -1);
+});
+*/
+/*
+b=process.argv.slice(2);
+sum=0;
+for(i in b) sum=sum+Number(b[i]);
+console.log(sum);
+*/
+//console.log("HELLO WORLD");
+
+

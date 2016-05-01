@@ -1,0 +1,39 @@
+var http=require('http');
+var res;
+http.get(process.argv[2], function(response){
+	response.setEncoding('utf8');
+	response.on("data",function(data,err){ if(err) console.log(err); else res+=data;});
+	response.on("end",function(err){if(err) console.log(err); else {console.log(res.length);console.log(res);} });
+	response.on("error",function(error){ console.log(error)});
+})
+
+/*c9v7ONnQmGXyjBje
+var  mymodule=require('./mymodule.js');
+var dir=process.argv[2];
+var ext=process.argv[3];
+
+function listoffiles(err,files){
+	if(err)
+		console.log(err);
+	for(i in files)
+		console.log(files[i]);
+}
+
+mymodule(dir,ext,listoffiles);*/
+/*
+fs.readFile(process.argv[2],'utf8',function(err,data){
+if(err) throw err;
+data=data.toString();
+data=data.split('\n');
+console.log(data.length -1);
+});
+*/
+/*
+b=process.argv.slice(2);
+sum=0;
+for(i in b) sum=sum+Number(b[i]);
+console.log(sum);
+*/
+//console.log("HELLO WORLD");
+
+
